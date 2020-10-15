@@ -1,8 +1,13 @@
 import React, { useContext } from 'react';
+import { UserContext } from './UserProvider';
 
 const Logout = () => {
+  const { setUser } = useContext(UserContext);
+
   return (
-    <button>Logout</button>
+    <button onClick={() => setUser(false)}>
+      Logout
+      </button>
   );
 };
 

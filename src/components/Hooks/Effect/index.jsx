@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import Code from '../../shared/Code';
 import Layout from '../../shared/Layout';
@@ -8,6 +8,12 @@ const Effect = () => {
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
+
+  useEffect(() => { 
+    const hue = 30 + 240 * (30 - count) / 60;
+    document.body.style.background = `hsl(${hue}, 100%, 70%)`;
+    document.body.style.transition = "0.25s";
+  });
 
   return (
     <Layout title="Hooks: Effect">
